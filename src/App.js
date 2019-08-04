@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import './App.scss';
+import SearchForm from './components/SearchForm/SearchForm';
+import ImageContainer from "./components/ImagesContainer/ImagesContainer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      urls: []
+    }
+    this.savePredefinedUrls = this.savePredefinedUrls.bind(this);
+  }
+  savePredefinedUrls (urls) {    
+    this.setState({ urls });
+  }
+  render () {
+    const { urls } = this.state;
+    return (
+      <div className="App">
+        <SearchForm saveUrls = {this.savePredefinedUrls}/>
+        <ImageContainer urls ={urls}/>
+      </div>
+    );
+  }
 }
 
 export default App;
