@@ -1,9 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
-## cd search-images
-In the project directory, you can run:
 
+In the project directory, you can run:
+### `cd search-images`
 ### `npm start`
 
 Runs the app in the development mode.<br>
