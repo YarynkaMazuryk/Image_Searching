@@ -1,28 +1,9 @@
-import React, {Component} from 'react';
-import './App.scss';
-import SearchForm from './components/SearchForm/SearchForm';
-import ImageContainer from "./components/ImagesContainer/ImagesContainer";
+import React from 'react';
+import SearchImages from "./containers/SearchImages"
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      urls: []
-    }
-    this.savePredefinedUrls = this.savePredefinedUrls.bind(this);
-  }
-  savePredefinedUrls (urls) {    
-    this.setState({ urls });
-  }
-  render () {
-    const { urls } = this.state;
+export default function App () {
     return (
-      <div className="App">
-        <SearchForm saveUrls = {this.savePredefinedUrls}/>
-        <ImageContainer urls ={urls}/>
-      </div>
-    );
-  }
-}
-
-export default App;
+    <div className="wrapper">
+        <SearchImages/>
+    </div>
+    )}

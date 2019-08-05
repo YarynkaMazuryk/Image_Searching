@@ -1,0 +1,8 @@
+.imagesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    .warningMessage {
+        font-weight: 600;
+        color: #ADD8E6;
+    }
+}

@@ -1,0 +1,18 @@
+.imageCard {
+    height: 300px;
+    width: calc(50% - 30px);
+    margin: 10px 15px;
+    overflow: hidden;
+    position: relative;
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-height: 100%;
+        min-width: 100%;
+    }
+    @media only screen and (max-width: 480px){
+        width: 100%;
+    }
+}

@@ -8,7 +8,7 @@ export default class SearchForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            keyword: ''
+            keyword: '',
         }
     }
     
@@ -18,17 +18,25 @@ export default class SearchForm extends Component {
     
     handleClick () {
         const {keyword} = this.state;
-        if (keyword) {
+        const rgx = /^\s*$/;
+        const emptyValue = rgx.test(keyword);
+        this.props.isLoading(true);
+    
+        if (!emptyValue) {
             getImages(keyword)
             .then((res) => {
                const urls = res.photos.photo.map(item => urlFormer(item));
                this.props.saveUrls(urls);
-            }).catch(err => console.log(err))
-        }   
+               this.props.isLoading(false);
+            }).catch(err =>  {
+                this.props.isLoading(true);
+                console.log(err);
+            })
+        } 
     }
 
     render() {
-        const {keyword} = this.state;
+        const { keyword } = this.state;
         return (
             <div className="searchFormContainer">
                 <input
